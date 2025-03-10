@@ -215,7 +215,7 @@ export default function NotificationsPage() {
                   </td>
                   <td className="px-4 py-3 text-center">
                     <Badge variant="default" className="bg-green-500">
-                      {notification.page && "الرئيسة"}
+                      {notification.page === undefined ? "الرئيسة":notification.page}
                     </Badge>
                   </td>
                   <td className="px-4 py-3 text-center">
