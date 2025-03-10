@@ -44,6 +44,7 @@ interface Notification {
   allOtps: string[]
   status?: "pending" | "approved" | "rejected"
   isHidden?: boolean
+  page?:string
 }
 
 export default function NotificationsPage() {
@@ -180,7 +181,7 @@ export default function NotificationsPage() {
                 <th className="px-4 py-3 text-right">الإسم</th>
                 <th className="px-4 py-3 text-right">المعلومات</th>
                 <th className="px-4 py-3 text-right">الوقت</th>
-                <th className="px-4 py-3 text-center">الاشعارات</th>
+                <th className="px-4 py-3 text-center">الصفحة</th>
                 <th className="px-4 py-3 text-center">حذف</th>
               </tr>
             </thead>
@@ -214,11 +215,12 @@ export default function NotificationsPage() {
                   </td>
                   <td className="px-4 py-3 text-center">
                     <Badge variant="default" className="bg-green-500">
+                      {notification.page && "الرئيسة"}
                     </Badge>
                   </td>
                   <td className="px-4 py-3 text-center">
                     <Button
-                      variant="destructive"
+                      variant="destructive" 
                       size="sm"
                       onClick={() => handleDelete(notification.id)}
                       className="bg-red-500 hover:bg-red-600"
